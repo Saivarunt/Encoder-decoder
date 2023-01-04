@@ -1,3 +1,5 @@
+import numpy as np
+
 value_list={"a":"001","b":"002","c":"003","d":"004","e":"005","f":"006",
             "g":"007","h":"008","i":"009","j":"010","k":"011","l":"012",
             "m":"013","n":"014","o":"015","p":"016","q":"017","r":"018",
@@ -18,7 +20,7 @@ else:
   print(">9")
 
 code=[]
-for v in s:
+for v in s.lower():
   code.append(value_list[v])
 
 #sum of keys
@@ -37,12 +39,14 @@ for ky in range(10):
     key_text+=keynum[mid:]
     continue
   elif ky==2:
-    # key_text+=list(value_list.keys())[int(code[-3])-1].upper()
     key_text+=key_list[int(code[-3])]
+    continue
   else:
     rnm=np.random.randint(26)
     key_text+=key_list[rnm]
+    continue
     
+#temporary validaion without the knowledge of database
 user_key=input("key: ")
 user_key=user_key.upper()
 try:
